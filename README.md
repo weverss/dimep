@@ -19,5 +19,5 @@ USER = 'user' ;
 PASSWORD = 'pass' ;
 
 # execute
-python dimep.py -c NUMERO_CRACHA [-m MES] [-y ANO] [>> RELATORIO_MENSAL.TXT]
+python dimep.py -c NUMERO_CRACHA [-m MES] [-y ANO] [> RELATORIO_MENSAL.TXT]
 ```
