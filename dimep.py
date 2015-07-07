@@ -116,7 +116,7 @@ def show_movements():
     table.append(foreseen)
     table.append(consolidated)
 
-    print("\nNOME: {0}".format(employee_name))
+    print("\nNOME: {0}".format(employee_name.encode('utf-8')))
     print("HORAS ÚTEIS: {0}h\n\n".format(get_business_days_quantity() * 8))
 
     # Exibe entradas e saidas
@@ -182,10 +182,10 @@ def get_db_connection():
     Retorna conexão com banco de dados.
     """
 
-    HOST = '' ;
-    DATABASE = '' ;
-    USER = '' ;
-    PASSWORD = '' ;
+    HOST = ''
+    DATABASE = ''
+    USER = ''
+    PASSWORD = ''
 
     try:
         return pymssql.connect(HOST, USER, PASSWORD, DATABASE)
@@ -285,11 +285,10 @@ def format_row(row):
     }
 
 
-def get_business_days_quantity(limit_day = None):
+def get_business_days_quantity(limit_day = 31):
     """
     Retorna quatidade de dias úteis no mês.
     """
-
     args = get_args()
     businessdays = 0
     calendar = Calendar()
@@ -307,7 +306,7 @@ def get_business_days_quantity(limit_day = None):
 
             businessdays += 1
 
-            if (str(day) == str(limit_day)):
+            if (int(day) == int(limit_day)):
                 return businessdays
 
     return businessdays
